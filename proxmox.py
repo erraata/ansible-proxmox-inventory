@@ -62,7 +62,10 @@ class ProxmoxPoolList(list):
 
 class ProxmoxVersion(dict):
     def get_version(self):
-        return float(self['version'])
+        try:
+            return float(self['version'])
+        except:
+            return float(self['version'][0:3])
 
 
 class ProxmoxPool(dict):
