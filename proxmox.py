@@ -39,7 +39,7 @@ class ProxmoxVMList(list):
 
     def get_names(self):
         if self.ver >= 4.0:
-            return [vm['name'] for vm in self if vm['template'] != 1]
+            return [vm['name'] for vm in self if vm.get('template') != 1]
         else:
             return [vm['name'] for vm in self]
 
